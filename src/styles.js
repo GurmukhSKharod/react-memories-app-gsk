@@ -14,6 +14,7 @@ export default makeStyles((theme) => ({
         color: '#330033',
         fontWeight: 'thin',
         fontSize: '4em',
+        padding: '0px 10px 0px 10px'
       },
       image: {
         marginLeft: '15px',
@@ -27,11 +28,6 @@ export default makeStyles((theme) => ({
         },  
         heading: {
           fontSize: '2em',
-        }
-      },
-      [theme.breakpoints.down('xs')]: {
-        heading: {
-          fontSize: '1.5em',
         }
       }
 
