@@ -28,6 +28,9 @@ export default makeStyles((theme) => ({
         },  
         heading: {
           fontSize: '2em',
+        },
+        image: {
+          display: 'none',
         }
       }
 
