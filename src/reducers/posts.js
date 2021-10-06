@@ -2,7 +2,7 @@
 Based on action type, we return the state changed by the action. */
 import {FETCH_ALL, CREATE, UPDATE, DELETE} from '../constants/actionTypes';
 
-export default (posts = [], action) => {
+const reducers = (posts = [], action) => {
     switch (action.type) {
         case DELETE:
             return posts.filter((post)=> post._id !== action.payload);
@@ -15,4 +15,6 @@ export default (posts = [], action) => {
         default:
             return posts;
     }
-}
+};
+
+export default reducers;
