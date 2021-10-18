@@ -7,7 +7,7 @@ import Input from './Input';
 import useStyles from './styles';
 
 const Auth = () => {
-    const classes = useStyles();
+    const classes = useStyles(); 
     const [showPassword, setShowPassword] = useState(false);
     const [isSignup, setIsSignup] = useState(false);
     
