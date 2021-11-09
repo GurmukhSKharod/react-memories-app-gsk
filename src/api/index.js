@@ -1,9 +1,11 @@
 import axios from 'axios';
 
-const url = 'https://react-memories-app-gsk.herokuapp.com/posts'; //from server side of project
+const API = axios.create({ baseURL: 'http://localhost:5000' });
 
-export const fetchPosts = () => axios.get(url);
-export const createPost = (newPost) => axios.post(url, newPost);
+// const url = 'https://react-memories-app-gsk.herokuapp.com/posts'; //from server side of project
+
+export const fetchPosts = () => API.get('/posts');
+export const createPost = (newPost) => API.post('/posts', newPost);
 
 /* to add UPDATE fyunctionality steps:
 1. router.patch('/:id', updatePost); -->  "routes/posts.js"
@@ -21,6 +23,8 @@ export const createPost = (newPost) => axios.post(url, newPost);
 12. {currentId ? "Editing" : "Creating"} A Memory --> "Form/Form.js"
 13. Implement clear function to complete update --> "Form/Form.js"
 */
-export const updatePost = (id, updatedPost) => axios.patch(`${url}/${id}`, updatedPost);
-export const deletePost = (id) => axios.delete(`${url}/${id}`);
-export const likePost = (id) => axios.patch(`${url}/${id}/likePost`);
+export const updatePost = (id, updatedPost) => API.patch(`/posts/${id}`, updatedPost);
+export const deletePost = (id) => API.delete(`/posts/${id}`);
+export const likePost = (id) => API.patch(`/posts/${id}/likePost`);
+export const signIn = (formData) => API.post('/user/signin', formData);
+export const signUp = (formData) => API.post('/user/signup', formData);
