@@ -5,24 +5,26 @@ import { useHistory } from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import useStyles from './styles';
 import memories from '../../images/memories.png';
+import * as actionType from '../../constants/actionTypes';
 
 const Navbar = () => {
-    const classes = useStyles();
+    
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
     const dispatch = useDispatch();
-    const history = useHistory();
     const location = useLocation();
+    const history = useHistory();
+    const classes = useStyles();
 
     const logout = () => {
-        dispatch({type: 'LOGOUT'});
-        history.push('/');
-        setUser(null);
-    };
+    dispatch({ type: actionType.LOGOUT });
+
+    history.push('/auth');
+
+    setUser(null);
+  };
 
     useEffect(() => {
         const token = user?.token;
-
-        //jwt
 
         setUser(JSON.parse(localStorage.getItem('profile')));
     }, [location]);
